@@ -128,10 +128,10 @@ export interface Employee {
   middleName: string;
   fullName: string;
   employeeId: string;
+  terminationId : string | null;
   code: string | null;
   jobTitle: JobTitle;
   unit: SubUnit;
-  supervisor: null | Supervisor[];
 }
 
 export interface EmployeePhoto {

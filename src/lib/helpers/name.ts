@@ -18,6 +18,8 @@
  *
  */
 
+import {Employee} from 'store/auth/types';
+
 /**
  * @param {string} name
  * @returns {string|undefined}
@@ -38,15 +40,10 @@ const getNameLetters = (name: string): string | undefined => {
   return firstLetter?.concat(lastLetter ? lastLetter : '');
 };
 
-const getFullName = (employee: {
-  firstName: string;
-  lastName: string;
-  middleName?: string;
-  terminationId?: string;
-}) => {
+const getFullName = (employee: Employee) => {
   if (employee.terminationId !== null && employee.middleName == null) {
     return employee.firstName + ' ' + employee.lastName + ' (Past Employee)';
-  } else if (employee.middleName !== null) {
+  } else if (employee.middleName !== '') {
     return (
       employee.firstName + ' ' + employee.middleName + ' ' + employee.lastName
     );
